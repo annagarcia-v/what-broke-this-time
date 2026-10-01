@@ -13,6 +13,15 @@ __pycache__/
 build/
 dist/
 
+# Local pipeline database and dbt artifacts.
+/pipeline/*.duckdb
+/pipeline/*.duckdb.wal
+/pipeline/target/
+/pipeline/logs/
+/pipeline/dbt_packages/
+/.user.yml
+/pipeline/.user.yml
+
 # Editor and operating system files.
 .idea/
 .vscode/

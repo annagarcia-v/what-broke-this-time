@@ -1,0 +1,19 @@
+name: sample_pipeline
+version: "1.0.0"
+config-version: 2
+profile: sample_pipeline
+require-dbt-version: [">=1.10.0", "<2.0.0"]
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+flags:
+  send_anonymous_usage_stats: false
+
+models:
+  sample_pipeline:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
