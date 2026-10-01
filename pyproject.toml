@@ -21,6 +21,10 @@ dev = [
     "pytest>=9.1.1,<10",
     "ruff>=0.15,<1",
 ]
+pipeline = [
+    "dbt-core>=1.10,<2",
+    "dbt-duckdb>=1.10,<2",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

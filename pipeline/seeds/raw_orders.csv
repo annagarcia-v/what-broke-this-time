@@ -1,0 +1,7 @@
+order_id,customer_id,ordered_at,status,amount_cents
+ORD-1001,001,2026-01-10,completed,12000
+ORD-1002,001,2026-01-11,COMPLETED,4550
+ORD-1003,002,2026-01-12,pending,8000
+ORD-1004,002,2026-01-13,completed,2500
+ORD-1005,003,2026-01-14,cancelled,9990
+ORD-1006,003,2026-01-15,completed,1000

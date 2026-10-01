@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "One row per customer, with trimmed names and uppercase country codes."
+    columns:
+      - name: customer_id
+        data_tests: [not_null, unique]
+      - name: customer_name
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+
+  - name: stg_orders
+    description: "One row per order, with normalized status and exact decimal euro amounts."
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: order_date
+        data_tests: [not_null]
+      - name: order_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [completed, pending, cancelled]
+      - name: order_amount_eur
+        data_tests: [not_null]
+
+  - name: customer_orders
+    description: "One row per completed order, enriched with customer details. Pending and cancelled orders are excluded."
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+      - name: customer_id
+        data_tests: [not_null]
+      - name: order_amount_eur
+        data_tests: [not_null]
