@@ -1,0 +1,19 @@
+# Local environments and credentials.
+.venv/
+.env
+.env.*
+!.env.example
+
+# Python caches and packaging outputs.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Editor and operating system files.
+.idea/
+.vscode/
+.DS_Store
